@@ -11,7 +11,6 @@ class_name Player
 @onready var mesh: MeshInstance3D = $MeshInstance3D
 
 func _ready():
-	# Crear módulos si faltan
 	if stats == null: stats = PlayerStats.new()
 	if input_handler == null: input_handler = PlayerInput.new()
 	if movement == null: movement = PlayerMovement.new()
@@ -21,10 +20,8 @@ func _ready():
 	if name.is_valid_int():
 		set_multiplayer_authority(name.to_int())
 		
-
-	# 👇 SOLO el dueño local usa esta cámara
 	if is_multiplayer_authority():
-		cam.current = true          # o cam.make_current()
+		cam.current = true
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	else:
 		cam.current = false
