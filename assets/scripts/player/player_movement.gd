@@ -19,7 +19,7 @@ func update(player: CharacterBody3D, input: PlayerInput, stats: PlayerStats, del
 	direction3D = direction3D.normalized()
 
 	# ----- CÁLCULO DE VELOCIDAD -----
-	var current_speed := stats.speed
+	current_speed = stats.speed
 
 	if input.is_crouching():
 		# agachado: muy lento
