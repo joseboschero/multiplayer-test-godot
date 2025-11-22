@@ -2,6 +2,7 @@ extends Resource
 class_name PlayerMovement
 
 var velocity := Vector3.ZERO
+@export var current_speed = 0
 
 func update(player: CharacterBody3D, input: PlayerInput, stats: PlayerStats, delta: float):
 	var direction2D = input.get_move_input()
@@ -17,7 +18,7 @@ func update(player: CharacterBody3D, input: PlayerInput, stats: PlayerStats, del
 	var direction3D = (forward * direction2D.y) + (right * direction2D.x)
 	direction3D = direction3D.normalized()
 	
-	var current_speed = stats.speed
+	current_speed = stats.speed
 	if input.is_sprinting():
 		current_speed = stats.sprint_speed
 
