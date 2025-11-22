@@ -137,22 +137,27 @@ func pull_enemy(player: CharacterBody3D):
 	var to = from + (-camera.global_transform.basis.z * shoot_range)
 
 	var query = PhysicsRayQueryParameters3D.create(from, to)
-	query.exclude = [player]  # Excluir al jugador
+	query.exclude = [player]  # Excluir al jugador que hace el pull
 
 	var result = space_state.intersect_ray(query)
 
 	if result and result.collider:
 		var target = result.collider
-		print("¡Atrayendo objetivo: ", target.name, "!")
 
-		# Calcular dirección desde el enemigo hacia el jugador
-		var direction = (player.global_position - target.global_position).normalized()
+		# Verificar que el objetivo sea damageable
+		if target.is_in_group("damageable"):
+			print("¡Atrayendo objetivo: ", target.name, "!")
 
-		# Aplicar impulso hacia el jugador
-		if target.has_method("apply_pull_impulse"):
-			target.apply_pull_impulse(direction * pull_force)
+			# Calcular dirección desde el objetivo hacia el jugador
+			var direction = (player.global_position - target.global_position).normalized()
+
+			# Aplicar impulso hacia el jugador
+			if target.has_method("apply_pull_impulse"):
+				target.apply_pull_impulse(direction * pull_force)
+			else:
+				print("El objetivo no tiene método apply_pull_impulse")
 		else:
-			print("El objetivo no tiene método apply_pull_impulse")
+			print("El objetivo no es atacable")
 	else:
 		print("No hay objetivo para atraer")
 

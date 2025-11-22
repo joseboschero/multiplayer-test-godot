@@ -127,27 +127,31 @@ func apply_impulse(impulse: Vector3):
 func ground_slam_impact(player: CharacterBody3D):
 	print("¡IMPACTO DE GROUND SLAM!")
 
-	# Obtener todos los nodos en la escena
-	var all_nodes = player.get_tree().get_nodes_in_group("enemies")
+	# Obtener todos los nodos dañables (jugadores y enemigos)
+	var all_nodes = player.get_tree().get_nodes_in_group("damageable")
 
-	var enemies_hit = 0
+	var targets_hit = 0
 
 	for node in all_nodes:
-		# Verificar que es un enemigo con posición
+		# No afectarse a sí mismo
+		if node == player:
+			continue
+
+		# Verificar que es un CharacterBody3D con posición
 		if node is CharacterBody3D or node is RigidBody3D:
 			# Calcular distancia
 			var distance = player.global_position.distance_to(node.global_position)
 
 			if distance <= slam_radius:
-				# Enemigo dentro del radio
-				enemies_hit += 1
+				# Objetivo dentro del radio
+				targets_hit += 1
 
-				# Calcular dirección desde el jugador hacia el enemigo (horizontal + arriba)
+				# Calcular dirección desde el jugador hacia el objetivo (horizontal + arriba)
 				var direction = (node.global_position - player.global_position)
 				direction.y = 0  # Eliminar diferencia vertical primero
 				direction = direction.normalized()
 
-				# Agregar componente vertical para levantar al enemigo
+				# Agregar componente vertical para levantar al objetivo
 				direction.y = 1.0  # Impulsar hacia arriba
 
 				direction = direction.normalized()
@@ -157,6 +161,10 @@ func ground_slam_impact(player: CharacterBody3D):
 
 				if node.has_method("apply_pull_impulse"):
 					node.apply_pull_impulse(impulse)
-					print("Enemigo ", node.name, " impulsado con fuerza ", slam_impulse_strength)
+					print("Objetivo ", node.name, " impulsado con fuerza ", slam_impulse_strength)
 
-	print("Ground Slam: ", enemies_hit, " enemigos afectados")
+				# Aplicar daño si es jugador
+				if node.is_in_group("players") and node.has_method("take_damage"):
+					node.take_damage(10)  # Daño del ground slam
+
+	print("Ground Slam: ", targets_hit, " objetivos afectados")

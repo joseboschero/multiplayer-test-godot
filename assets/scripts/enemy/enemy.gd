@@ -12,8 +12,9 @@ var pull_velocity: Vector3 = Vector3.ZERO
 
 func _ready():
 	health = max_health
-	# Agregar al grupo "enemies" para detección de ground slam
+	# Agregar a grupos para detección de habilidades
 	add_to_group("enemies")
+	add_to_group("damageable")
 	print("Enemigo creado con ", health, " de vida")
 
 func take_damage(damage: float):

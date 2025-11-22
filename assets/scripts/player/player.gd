@@ -27,6 +27,13 @@ func _ready():
 		gun = Gun.new()
 		add_child(gun)
 
+	# Agregar al grupo "damageable" para PvP
+	add_to_group("damageable")
+	add_to_group("players")
+
+	# Inicializar vida
+	current_health = max_health
+
 	# Multiplayer: asignar autoridad según el nombre
 	if name.is_valid_int():
 		set_multiplayer_authority(name.to_int())
@@ -250,3 +257,39 @@ func update_hud():
 			ammo_label.add_theme_color_override("font_color", Color(1, 0.5, 0))  # Naranja
 		else:
 			ammo_label.add_theme_color_override("font_color", Color(1, 0, 0))  # Rojo
+
+func take_damage(damage: float):
+	current_health -= damage
+	print("Jugador ", name, " recibió ", damage, " de daño! Vida: ", current_health, "/", max_health)
+
+	# Efecto visual (cambiar color del mesh brevemente)
+	if mesh:
+		flash_damage()
+
+	# Verificar si murió
+	if current_health <= 0:
+		die()
+
+func flash_damage():
+	if mesh:
+		var material = StandardMaterial3D.new()
+		material.albedo_color = Color(1, 0, 0, 1)  # Rojo
+		mesh.set_surface_override_material(0, material)
+
+		await get_tree().create_timer(0.1).timeout
+		mesh.set_surface_override_material(0, null)
+
+func die():
+	print("Jugador ", name, " ha muerto!")
+	# Respawn en posición aleatoria
+	var random_x = randf_range(-20, 20)
+	var random_z = randf_range(-20, 20)
+	global_position = Vector3(random_x, 5, random_z)
+	current_health = max_health
+	print("Jugador ", name, " reaparece en ", global_position)
+
+func apply_pull_impulse(impulse: Vector3):
+	# Aplicar impulso al sistema de movimiento
+	if movement and movement.has_method("apply_impulse"):
+		movement.apply_impulse(impulse)
+		print("Jugador ", name, " recibió impulso: ", impulse)
