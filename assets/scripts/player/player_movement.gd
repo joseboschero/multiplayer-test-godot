@@ -16,9 +16,13 @@ func update(player: CharacterBody3D, input: PlayerInput, stats: PlayerStats, del
 
 	var direction3D = (forward * direction2D.y) + (right * direction2D.x)
 	direction3D = direction3D.normalized()
+	
+	var current_speed = stats.speed
+	if input.is_sprinting():
+		current_speed = stats.sprint_speed
 
-	velocity.x = direction3D.x * stats.speed
-	velocity.z = direction3D.z * stats.speed
+	velocity.x = direction3D.x * current_speed
+	velocity.z = direction3D.z * current_speed
 
 	if not player.is_on_floor():
 		velocity.y -= stats.gravity * delta

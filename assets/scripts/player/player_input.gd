@@ -2,6 +2,7 @@ extends Resource
 class_name PlayerInput
 
 var mouse_delta := Vector2.ZERO
+var sprinting := false
 
 func _init():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -22,3 +23,6 @@ func consume_mouse_delta() -> Vector2:
 	var d = mouse_delta
 	mouse_delta = Vector2.ZERO
 	return d
+
+func is_sprinting() -> bool:
+	return Input.is_action_pressed("sprint")

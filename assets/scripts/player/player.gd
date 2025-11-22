@@ -13,7 +13,7 @@ class_name Player
 @onready var anim_player: AnimationPlayer = $"animations/AnimationPlayer"
 
 
-func _ready() -> void:
+func _ready():
 	if stats == null: stats = PlayerStats.new()
 	if input_handler == null: input_handler = PlayerInput.new()
 	if movement == null: movement = PlayerMovement.new()
@@ -23,7 +23,7 @@ func _ready() -> void:
 	# Multiplayer: autoridad según nombre del nodo (0,1,2, etc.)
 	if name.is_valid_int():
 		set_multiplayer_authority(name.to_int())
-
+		
 	if is_multiplayer_authority():
 		cam.current = true
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
