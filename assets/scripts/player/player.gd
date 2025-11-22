@@ -21,6 +21,11 @@ func _ready():
 	if input_handler == null: input_handler = PlayerInput.new()
 	if movement == null: movement = PlayerMovement.new()
 	if camera_controller == null: camera_controller = PlayerCamera.new()
+	
+	DebugOverlay.watch_object("Stats", stats)
+	DebugOverlay.watch_object("Input", input_handler)
+	DebugOverlay.watch_object("Movement", movement)
+	DebugOverlay.watch_object("CameraController", camera_controller)
 
 	# Multiplayer: asignar autoridad según el nombre
 	if name.is_valid_int():
