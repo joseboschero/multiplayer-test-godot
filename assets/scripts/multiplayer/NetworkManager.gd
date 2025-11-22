@@ -20,7 +20,7 @@ func _process(delta):
 		host()
 
 	if Input.is_action_just_pressed("join"):
-		join("127.0.0.1")
+		join("26.47.253.247")
 
 
 # -------------------------------

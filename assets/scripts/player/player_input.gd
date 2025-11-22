@@ -15,6 +15,9 @@ func get_move_input() -> Vector2:
 func is_jump_pressed() -> bool:
 	return Input.is_action_just_pressed("jump")
 
+func is_crouching() -> bool:               
+	return Input.is_action_pressed("crouch")
+
 func update_mouse_input(event: InputEvent):
 	if event is InputEventMouseMotion:
 		mouse_delta = event.relative
@@ -26,3 +29,6 @@ func consume_mouse_delta() -> Vector2:
 
 func is_sprinting() -> bool:
 	return Input.is_action_pressed("sprint")
+
+func is_roll_pressed() -> bool:
+	return Input.is_action_just_pressed("roll")

@@ -6,3 +6,4 @@ res://new_gd_script.gd
 res://assets/scripts/player/player_animations.gd
 res://assets/scripts/player/player_camera.gd
 res://assets/scripts/player/player_stats.gd
+res://assets/scripts/multiplayer/NetworkManager.gd
