@@ -22,10 +22,8 @@ func _ready():
 	if movement == null: movement = PlayerMovement.new()
 	if camera_controller == null: camera_controller = PlayerCamera.new()
 	
-	DebugOverlay.watch_value("Speed", func(): 
-		print(movement.current_speed)
-		return movement.current_speed
-	)
+	#Show Current Speed
+	DebugOverlay.watch_value("Current Speed", func(): return movement.current_speed)
 
 	# Multiplayer: asignar autoridad según el nombre
 	if name.is_valid_int():

@@ -5,7 +5,6 @@ extends Node
 
 const PORT := 9000
 
-
 func _ready():
 	mp.peer_connected.connect(_on_peer_connected)
 	mp.peer_disconnected.connect(_on_peer_disconnected)
@@ -13,7 +12,6 @@ func _ready():
 	mp.connection_failed.connect(_on_connection_failed)
 
 	print("NetworkManager listo. Mi id: ", mp.get_unique_id())
-
 
 func _process(delta):
 	if Input.is_action_just_pressed("host"):
