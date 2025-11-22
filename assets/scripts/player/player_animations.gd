@@ -11,6 +11,8 @@ class_name PlayerAnimations
 @export var jumpinair_anim: String = "Jump"
 @export var jumpfall_anim: String = "Jump_Land"
 
+var current_anim: String = ""
+
 # ---- Estado interno de salto ----
 const JUMP_START_TIME := 0.20   # segundos que dura (aprox) la anim de inicio
 const JUMP_LAND_TIME  := 0.20   # segundos que dura (aprox) la anim de aterrizar
@@ -19,7 +21,7 @@ var jump_state := "ground"      # "ground", "start", "air", "land"
 var jump_state_time := 0.0
 
 
-func update(player: CharacterBody3D, anim_player: AnimationPlayer, delta: float) -> void:
+func update(player: CharacterBody3D, anim_player: AnimationPlayer, delta: float):
 	if anim_player == null:
 		return
 
@@ -79,6 +81,8 @@ func update(player: CharacterBody3D, anim_player: AnimationPlayer, delta: float)
 				target_anim = move_anim
 
 	_play_if_different(anim_player, target_anim)
+	current_anim = target_anim
+	return target_anim
 
 
 func _play_if_different(anim_player: AnimationPlayer, name: String) -> void:

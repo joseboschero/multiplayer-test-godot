@@ -46,14 +46,30 @@ func _physics_process(delta):
 		movement.update(self, input_handler, stats, delta)
 		
 		# 👇 Actualizar animaciones según velocidad / estado
-		if animations:
-			animations.update(self, anim_player, delta)
+		var anim_name := ""
+		if animations and anim_player:
+			anim_name = animations.update(self, anim_player, delta)
 
+		if anim_name != "":
+			rpc("remote_set_animation", anim_name)
+		
 		# Envía posición/rotación a otros
 		rpc("sync_transform", global_transform)
 
 
 @rpc("any_peer", "unreliable")
+
+func remote_set_animation(anim_name: String) -> void:
+	# El dueño ya anima localmente, no hace falta.
+	if is_multiplayer_authority():
+		return
+	if anim_player == null:
+		return
+	if anim_name == "":
+		return
+	if anim_player.current_animation != anim_name:
+		anim_player.play(anim_name)
+
 func sync_transform(t: Transform3D):
 	# Clientes que NO son dueños actualizan transform
 	if not is_multiplayer_authority():
