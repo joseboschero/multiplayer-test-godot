@@ -19,6 +19,9 @@ func _ready():
 	if movement == null: movement = PlayerMovement.new()
 	if camera_controller == null: camera_controller = PlayerCamera.new()
 	if animations == null: animations = PlayerAnimations.new()
+	
+	# 👇 Pasar las stats al módulo de animaciones
+	animations.stats = stats
 
 	# Multiplayer: autoridad según nombre del nodo (0,1,2, etc.)
 	if name.is_valid_int():
@@ -41,6 +44,11 @@ func _physics_process(delta: float) -> void:
 
 		var anim_name := ""
 		if animations and anim_player:
+			# 👇 si se presionó roll, iniciamos el estado
+			if input_handler.is_roll_pressed():
+				animations.start_roll()
+			# 👇 actualizar flag de agachado
+			animations.set_crouching(input_handler.is_crouching())
 			anim_name = animations.update(self, anim_player, delta)
 
 		if anim_name != "":
