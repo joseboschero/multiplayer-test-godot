@@ -1,0 +1,8 @@
+res://scenes/player/Player.tscn
+res://assets/scripts/player/player.gd
+res://assets/scripts/player/player_movement.gd
+res://assets/scripts/player/player_input.gd
+res://new_gd_script.gd
+res://assets/scripts/player/player_animations.gd
+res://assets/scripts/player/player_camera.gd
+res://assets/scripts/player/player_stats.gd
