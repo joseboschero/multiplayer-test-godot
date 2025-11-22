@@ -38,6 +38,6 @@ func update(player: CharacterBody3D, input: PlayerInput, delta: float):
 	if is_moving:
 		bob_timer += delta * speed
 		var offset = sin(bob_timer) * bob_amount
-		cam.position.y = base_position.y + offset
+		cam.position.x = base_position.x + offset
 	else:
 		cam.position.y = lerp(cam.position.y, base_position.y, delta * 10.0)
