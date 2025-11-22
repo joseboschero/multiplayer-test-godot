@@ -1,6 +1,12 @@
 extends CharacterBody3D
 class_name Player
 
+# variables para animaciones
+@export var animations: PlayerAnimations
+
+@onready var anim_player: AnimationPlayer = $"animations/AnimationPlayer"
+
+# variables para multijugador
 @export var stats: PlayerStats
 @export var input_handler: PlayerInput
 @export var movement: PlayerMovement
@@ -38,6 +44,10 @@ func _physics_process(delta):
 	# Solo procesa input y movimiento el dueño local
 	if is_multiplayer_authority():
 		movement.update(self, input_handler, stats, delta)
+		
+		# 👇 Actualizar animaciones según velocidad / estado
+		if animations:
+			animations.update(self, anim_player, delta)
 
 		# Envía posición/rotación a otros
 		rpc("sync_transform", global_transform)
@@ -66,3 +76,5 @@ func _unhandled_input(event):
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+# func para animar al personaje
