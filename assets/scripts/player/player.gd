@@ -259,6 +259,11 @@ func update_hud():
 			ammo_label.add_theme_color_override("font_color", Color(1, 0, 0))  # Rojo
 
 func take_damage(damage: float):
+	# Usar RPC para sincronizar el daño en todos los clientes
+	rpc("apply_damage", damage)
+
+@rpc("any_peer", "call_local", "reliable")
+func apply_damage(damage: float):
 	current_health -= damage
 	print("Jugador ", name, " recibió ", damage, " de daño! Vida: ", current_health, "/", max_health)
 
@@ -281,6 +286,11 @@ func flash_damage():
 
 func die():
 	print("Jugador ", name, " ha muerto!")
+	# Usar RPC para sincronizar el respawn
+	rpc("respawn_player")
+
+@rpc("any_peer", "call_local", "reliable")
+func respawn_player():
 	# Respawn en posición aleatoria
 	var random_x = randf_range(-20, 20)
 	var random_z = randf_range(-20, 20)
@@ -289,6 +299,11 @@ func die():
 	print("Jugador ", name, " reaparece en ", global_position)
 
 func apply_pull_impulse(impulse: Vector3):
+	# Usar RPC para sincronizar el impulso
+	rpc("apply_impulse_sync", impulse)
+
+@rpc("any_peer", "call_local", "reliable")
+func apply_impulse_sync(impulse: Vector3):
 	# Aplicar impulso al sistema de movimiento
 	if movement and movement.has_method("apply_impulse"):
 		movement.apply_impulse(impulse)

@@ -18,6 +18,11 @@ func _ready():
 	print("Enemigo creado con ", health, " de vida")
 
 func take_damage(damage: float):
+	# Sincronizar daño con RPC
+	rpc("apply_damage_enemy", damage)
+
+@rpc("any_peer", "call_local", "reliable")
+func apply_damage_enemy(damage: float):
 	health -= damage
 	print("¡Enemigo recibió ", damage, " de daño! Vida restante: ", health)
 
@@ -42,9 +47,10 @@ func flash_damage():
 
 func die():
 	print("¡Enemigo eliminado! Reapareciendo...")
-	respawn()
+	rpc("respawn_enemy")
 
-func respawn():
+@rpc("any_peer", "call_local", "reliable")
+func respawn_enemy():
 	# Generar posición aleatoria en el mapa
 	var random_x = randf_range(-spawn_area_size / 2, spawn_area_size / 2)
 	var random_z = randf_range(-spawn_area_size / 2, spawn_area_size / 2)
@@ -81,5 +87,10 @@ func _physics_process(delta):
 	move_and_slide()
 
 func apply_pull_impulse(impulse: Vector3):
+	# Sincronizar impulso con RPC
+	rpc("apply_impulse_enemy", impulse)
+
+@rpc("any_peer", "call_local", "reliable")
+func apply_impulse_enemy(impulse: Vector3):
 	pull_velocity = impulse
 	print("Enemigo recibió impulso de atracción: ", impulse)
