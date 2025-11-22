@@ -8,10 +8,6 @@
 [ext_resource type="Script" uid="uid://cfm28uyp6d7ru" path="res://assets/scripts/player/player_camera.gd" id="5_v42im"]
 [ext_resource type="PackedScene" uid="uid://dyo0u4ksywa01" path="res://assets/animations/animations.glb" id="6_c3xxp"]
 
-[sub_resource type="Resource" id="Resource_v42im"]
-script = ExtResource("2_npwbq")
-metadata/_custom_type_script = "uid://cw68mdge54etp"
-
 [sub_resource type="Resource" id="Resource_pn6s4"]
 script = ExtResource("2_tpg5x")
 metadata/_custom_type_script = "uid://bgtwvkrl6jqsa"
@@ -28,17 +24,21 @@ metadata/_custom_type_script = "uid://d2vsa0hesf832"
 script = ExtResource("5_v42im")
 metadata/_custom_type_script = "uid://cfm28uyp6d7ru"
 
+[sub_resource type="Resource" id="Resource_v42im"]
+script = ExtResource("2_npwbq")
+metadata/_custom_type_script = "uid://cw68mdge54etp"
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o8nba"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_wr5hl"]
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_wr5hl")
-animations = SubResource("Resource_v42im")
 stats = SubResource("Resource_pn6s4")
 input_handler = SubResource("Resource_7oing")
 movement = SubResource("Resource_5stf6")
 camera_controller = SubResource("Resource_180ig")
+animations = SubResource("Resource_v42im")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
