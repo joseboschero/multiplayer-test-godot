@@ -14,10 +14,18 @@ config/name="Propio"
 run/main_scene="uid://cc2i6pqmgfxpa"
 config/features=PackedStringArray("4.5", "Forward Plus")
 
+[autoload]
+
+DebugOverlay="*res://scenes/ui/debug_overlay.tscn"
+
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/monitor_overlay/plugin.cfg")
 
 [input]
 

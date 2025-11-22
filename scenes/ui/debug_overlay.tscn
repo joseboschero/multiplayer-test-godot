@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://82jaesfgoiig"]
+
+[ext_resource type="Script" uid="uid://ctug5i4f8ptmj" path="res://assets/scripts/ui/debug/debug_overlay.gd" id="1_tasbd"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_tasbd")
+
+[node name="Background" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(50, 20)
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0, 0, 0, 0.49803922)
+
+[node name="Text" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_constants/line_spacing = 0

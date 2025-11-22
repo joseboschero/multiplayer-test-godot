@@ -18,6 +18,9 @@ func _ready():
 	if input_handler == null: input_handler = PlayerInput.new()
 	if movement == null: movement = PlayerMovement.new()
 	if camera_controller == null: camera_controller = PlayerCamera.new()
+	
+	#Show Current Speed
+	DebugOverlay.watch_value("Current Speed", func(): return movement.current_speed)
 	if animations == null: animations = PlayerAnimations.new()
 	
 	# 👇 Pasar las stats al módulo de animaciones

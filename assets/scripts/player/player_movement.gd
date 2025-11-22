@@ -2,6 +2,7 @@ extends Resource
 class_name PlayerMovement
 
 var velocity := Vector3.ZERO
+@export var current_speed = 0
 
 func update(player: CharacterBody3D, input: PlayerInput, stats: PlayerStats, delta: float):
 	var direction2D = input.get_move_input()
