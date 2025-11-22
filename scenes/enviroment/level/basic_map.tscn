@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://cc2i6pqmgfxpa"]
+[gd_scene load_steps=8 format=3 uid="uid://cc2i6pqmgfxpa"]
 
 [ext_resource type="Texture2D" uid="uid://bl124kv68gjq5" path="res://assets/textures/texture.png" id="1_urakw"]
+[ext_resource type="PackedScene" uid="uid://cenemytest001" path="res://scenes/enemy/Enemy.tscn" id="2_enemy"]
 [ext_resource type="Script" uid="uid://djfw42qtnpar3" path="res://assets/scripts/multiplayer/NetworkManager.gd" id="3_4fgqf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2ss2a"]
@@ -32,9 +33,13 @@ transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545
 shadow_enabled = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00037574768, 0.031569004, -0.01944685)
 material_override = SubResource("StandardMaterial3D_4fgqf")
 use_collision = true
 size = Vector3(100, 0.2, 100)
 
 [node name="NetworkManager" type="Node3D" parent="."]
 script = ExtResource("3_4fgqf")
+
+[node name="Enemy" parent="." instance=ExtResource("2_enemy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 5)

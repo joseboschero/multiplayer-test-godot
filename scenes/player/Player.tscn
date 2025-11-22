@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://cv30sdwe8fyv6"]
+[gd_scene load_steps=13 format=3 uid="uid://cv30sdwe8fyv6"]
 
 [ext_resource type="Script" uid="uid://dlnonll3mauur" path="res://assets/scripts/player/player.gd" id="1_wr5hl"]
 [ext_resource type="Script" uid="uid://bgtwvkrl6jqsa" path="res://assets/scripts/player/player_stats.gd" id="2_tpg5x"]
 [ext_resource type="Script" uid="uid://dn3pj164gqaxe" path="res://assets/scripts/player/player_input.gd" id="3_c3xxp"]
 [ext_resource type="Script" uid="uid://d2vsa0hesf832" path="res://assets/scripts/player/player_movement.gd" id="4_npwbq"]
 [ext_resource type="Script" uid="uid://cfm28uyp6d7ru" path="res://assets/scripts/player/player_camera.gd" id="5_v42im"]
+[ext_resource type="PackedScene" uid="uid://crosshair001" path="res://scenes/ui/Crosshair.tscn" id="7_v42im"]
 
 [sub_resource type="Resource" id="Resource_pn6s4"]
 script = ExtResource("2_tpg5x")
@@ -43,4 +44,6 @@ mesh = SubResource("CapsuleMesh_wr5hl")
 skeleton = NodePath("../..")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 3.163157)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1488812, 1.562237, 0.36184096)
+
+[node name="Crosshair" parent="." instance=ExtResource("7_v42im")]
