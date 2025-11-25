@@ -1,0 +1,60 @@
+[gd_scene load_steps=2 format=3 uid="uid://bihcxs72xjw1r"]
+
+[ext_resource type="Script" uid="uid://dy3nvp68ys02l" path="res://assets/scripts/ui/menu/connect_menu.gd" id="1_jes8g"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jes8g")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.25565878, 0.25565878, 0.25565878, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -181.0
+offset_top = -80.5
+offset_right = 181.0
+offset_bottom = 80.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Ip Address:"
+
+[node name="IpInput" type="LineEdit" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+placeholder_text = "0.0.0.0"
+
+[node name="Connect" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Connect
+"
+
+[node name="Back" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Back
+"
+
+[connection signal="pressed" from="VBoxContainer/Connect" to="." method="_on_connect_pressed"]
+[connection signal="pressed" from="VBoxContainer/Back" to="." method="_on_back_pressed"]

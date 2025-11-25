@@ -11,12 +11,13 @@ config_version=5
 [application]
 
 config/name="Propio"
-run/main_scene="uid://cc2i6pqmgfxpa"
+run/main_scene="uid://dog1ejkfxhoys"
 config/features=PackedStringArray("4.5", "Forward Plus")
 
 [autoload]
 
 DebugOverlay="*res://scenes/ui/debug_overlay.tscn"
+NetworkManager="*res://assets/scripts/multiplayer/NetworkManager.gd"
 
 [display]
 
@@ -25,7 +26,7 @@ window/size/viewport_height=720
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/monitor_overlay/plugin.cfg")
+enabled=PackedStringArray()
 
 [input]
 

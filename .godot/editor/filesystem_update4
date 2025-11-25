@@ -1,9 +1,8 @@
 res://scenes/player/Player.tscn
-res://assets/scripts/player/player.gd
-res://assets/scripts/player/player_movement.gd
-res://assets/scripts/player/player_input.gd
-res://new_gd_script.gd
-res://assets/scripts/player/player_animations.gd
-res://assets/scripts/player/player_camera.gd
-res://assets/scripts/player/player_stats.gd
-res://assets/scripts/multiplayer/NetworkManager.gd
+res://assets/scripts/ui/menu/pause_menu.gd
+res://scenes/enviroment/level/basic_map.tscn
+res://assets/scripts/ui/menu/settings_menu.gd
+res://scenes/ui/settings_menu.tscn
+res://scenes/ui/pause_menu.tscn
+res://assets/scripts/ui/menu/main_menu.gd
+res://scenes/ui/menu.tscn

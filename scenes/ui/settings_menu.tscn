@@ -1,0 +1,72 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddbuypex1iyar"]
+
+[ext_resource type="Script" uid="uid://d0acnicgi8cl7" path="res://assets/scripts/ui/menu/settings_menu.gd" id="1_qwcqe"]
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qwcqe")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.25565878, 0.25565878, 0.25565878, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -181.0
+offset_top = -104.5
+offset_right = 181.0
+offset_bottom = 104.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="ResolutionLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Resolution"
+
+[node name="ResolutionOption" type="OptionButton" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+
+[node name="FullscreenCheck" type="CheckBox" parent="VBoxContainer"]
+layout_mode = 2
+text = "FullScreen"
+
+[node name="VSyncCheck" type="CheckBox" parent="VBoxContainer"]
+layout_mode = 2
+text = "Vsync"
+
+[node name="VolumeLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Volume"
+
+[node name="VolumeSlider" type="HSlider" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="ApplyButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Apply"
+
+[node name="BackButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Back"
+
+[connection signal="pressed" from="VBoxContainer/ApplyButton" to="." method="_on_apply_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

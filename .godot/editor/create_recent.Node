@@ -1,6 +1,15 @@
+Control
+Node
+Button
+HSlider
+Label
+CheckBox
+OptionButton
+LineEdit
+VBoxContainer
+ColorRect
 Node3D
 CSGBox3D
 Camera3D
 CharacterBody3D
 CollisionShape3D
-MeshInstance3D
