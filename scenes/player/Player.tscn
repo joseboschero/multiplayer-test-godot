@@ -32,7 +32,7 @@ metadata/_custom_type_script = "uid://cw68mdge54etp"
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_wr5hl"]
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_wr5hl")
 stats = SubResource("Resource_pn6s4")
 input_handler = SubResource("Resource_7oing")

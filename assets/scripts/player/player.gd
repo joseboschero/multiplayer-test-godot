@@ -20,7 +20,7 @@ func _ready():
 	if camera_controller == null: camera_controller = PlayerCamera.new()
 	
 	#Show Current Speed
-	DebugOverlay.watch_value("Current Speed", func(): return movement.current_speed)
+	#DebugOverlay.watch_value("Current Speed", func(): return movement.current_speed)
 	if animations == null: animations = PlayerAnimations.new()
 	
 	# 👇 Pasar las stats al módulo de animaciones
@@ -88,11 +88,3 @@ func _process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if is_multiplayer_authority():
 		input_handler.update_mouse_input(event)
-
-
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_cancel"):
-		if Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-		else:
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)

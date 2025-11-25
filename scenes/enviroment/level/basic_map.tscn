@@ -1,7 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cc2i6pqmgfxpa"]
+[gd_scene load_steps=11 format=3 uid="uid://cc2i6pqmgfxpa"]
 
+[ext_resource type="Script" uid="uid://bvifwpqsrjiaq" path="res://assets/scripts/maps/basic_map.gd" id="1_4fgqf"]
 [ext_resource type="Texture2D" uid="uid://bl124kv68gjq5" path="res://assets/textures/texture.png" id="1_urakw"]
 [ext_resource type="Script" uid="uid://djfw42qtnpar3" path="res://assets/scripts/multiplayer/NetworkManager.gd" id="3_4fgqf"]
+[ext_resource type="Script" uid="uid://clgx0v1et0qbe" path="res://assets/scripts/maps/pause_controller.gd.gd" id="4_8tpb0"]
+[ext_resource type="PackedScene" uid="uid://b7oce0bid564b" path="res://scenes/ui/pause_menu.tscn" id="5_84w4g"]
+[ext_resource type="PackedScene" uid="uid://ddbuypex1iyar" path="res://scenes/ui/settings_menu.tscn" id="6_x748p"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2ss2a"]
 sky_top_color = Color(0.18890715, 0.47614223, 0.66072553, 1)
@@ -23,6 +27,7 @@ glow_enabled = true
 albedo_texture = ExtResource("1_urakw")
 
 [node name="Node3D" type="Node3D"]
+script = ExtResource("1_4fgqf")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_4fgqf")
@@ -38,3 +43,10 @@ size = Vector3(100, 0.2, 100)
 
 [node name="NetworkManager" type="Node3D" parent="."]
 script = ExtResource("3_4fgqf")
+
+[node name="PauseController" type="Node" parent="."]
+script = ExtResource("4_8tpb0")
+
+[node name="PauseMenu" parent="." instance=ExtResource("5_84w4g")]
+
+[node name="SettingsMenu" parent="." instance=ExtResource("6_x748p")]
