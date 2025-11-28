@@ -1,5 +1,62 @@
 # Godot 4+ specific ignores
-/android/
 .godot/
+.import/
+
+# Godot-specific files to ignore
+*.translation
+export_presets.cfg
+override.cfg
+
+# Imported translations (automatically generated from CSV files)
+*.translation
+
+# Mono-specific ignores (if using C#)
+.mono/
+data_*/
+mono_crash.*.json
+
+# System/tool-specific ignores
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE-specific ignores
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Build/export folders
+builds/
+exports/
+dist/
+
+# Logs and databases
+*.log
+*.sql
+*.sqlite
+
+# Backup files
+*.backup
+*.bak
+*~
+
+# OS generated files
+desktop.ini
+$RECYCLE.BIN/
+
+# Temporary files
 *.tmp
-*.cfg
+*.temp
+
+# Addons cache (if you want to ignore)
+# .addons/
+
+# Sensitive data (keys, credentials, etc.)
+# secrets.cfg
+# .env

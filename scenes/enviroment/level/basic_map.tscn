@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b7oce0bid564b" path="res://scenes/ui/pause_menu.tscn" id="5_84w4g"]
 [ext_resource type="Script" uid="uid://dikyhrackr0ob" path="res://testing_enemies/enemy_spawner.gd" id="6_fe4u0"]
 [ext_resource type="PackedScene" uid="uid://ddbuypex1iyar" path="res://scenes/ui/settings_menu.tscn" id="6_x748p"]
-[ext_resource type="PackedScene" uid="uid://cxfray8orly8s" path="res://testing_enemies/test_enemy.tscn" id="7_fe4u0"]
+[ext_resource type="PackedScene" uid="uid://cxfray8orly8s" path="res://testing_enemies/enemy.tscn" id="7_fe4u0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2ss2a"]
 sky_top_color = Color(0.18890715, 0.47614223, 0.66072553, 1)
