@@ -10,31 +10,57 @@ class_name PlayerCamera
 @export var bob_speed_sprint := 11.0
 @export var bob_timer := 0.0
 var base_position := Vector3.ZERO
-# -----------------------
+
+# ✅ NUEVA FUNCIÓN: Configurar primera persona
+func setup_first_person(cam: Camera3D, player: CharacterBody3D):
+	# La cámara NO renderiza la capa 2 (tu propio cuerpo)
+	cam.cull_mask = 0xFFFFFFFD
+	
+	# Buscar y configurar el MeshInstance3D del jugador
+	var mesh = player.get_node_or_null("MeshInstance3D")
+	if mesh and mesh is MeshInstance3D:
+		mesh.layers = 2
+		print("🧍 Mesh configurado en capa 2")
+	else:
+		print("⚠️ No se encontró MeshInstance3D")
+	
+	# Si tienes animaciones con meshes adicionales, también configurarlos
+	var animations_node = player.get_node_or_null("animations")
+	if animations_node:
+		configure_node_layers(animations_node, 2)
+	
+	print("🎥 Cámara configurada - cull_mask: ", cam.cull_mask)
+
+# Función recursiva para configurar capas en todos los meshes
+func configure_node_layers(node: Node, layer: int):
+	if node is MeshInstance3D:
+		node.layers = layer
+	
+	for child in node.get_children():
+		configure_node_layers(child, layer)
 
 func update(player: CharacterBody3D, input: PlayerInput, delta: float):
 	var mouse = input.consume_mouse_delta()
-
 	player.rotate_y(-mouse.x * mouse_sensitivity)
 	rotation_x = clamp(rotation_x - mouse.y * mouse_sensitivity, -1.5, 1.5)
-
+	
 	var cam = player.get_node("Camera3D")
 	cam.rotation.x = rotation_x
-
+	
 	# -------------------------
 	#      CAMERA BOBBING
 	# -------------------------
 	
 	if base_position == Vector3.ZERO:
 		base_position = cam.position
-
+	
 	var move_input := input.get_move_input()
 	var is_moving := move_input.length() > 0.1 and player.is_on_floor()
-
 	var speed = bob_speed_walk
+	
 	if input.is_sprinting():
 		speed = bob_speed_sprint
-
+	
 	if is_moving:
 		bob_timer += delta * speed
 		var offset = sin(bob_timer) * bob_amount

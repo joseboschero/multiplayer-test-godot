@@ -2,3 +2,6 @@ res://scenes/enviroment/level/basic_map.tscn
 res://testing_enemies/test_enemy.gd
 res://assets/scripts/weapons/passive/garlic/garlic.gd
 res://testing_enemies/enemy.gd
+res://scenes/player/Player.tscn
+res://assets/scripts/player/player.gd
+res://assets/scripts/player/player_camera.gd

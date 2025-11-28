@@ -23,10 +23,8 @@ func _ready():
 	$PassiveWeaponManager.add_passive_weapon(garlic_scene, self)
 	
 	if animations == null: animations = PlayerAnimations.new()
-	
-	# 👇 Pasar las stats al módulo de animaciones
 	animations.stats = stats
-
+	
 	# Multiplayer: autoridad según nombre del nodo (0,1,2, etc.)
 	if name.is_valid_int():
 		set_multiplayer_authority(name.to_int())
@@ -34,36 +32,31 @@ func _ready():
 	if is_multiplayer_authority():
 		cam.current = true
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		
+		# ✅ Configurar primera persona - pasar el nodo Player completo
+		camera_controller.setup_first_person(cam, self)
 	else:
 		cam.current = false
-
+		
 	print("Player listo. name=", name,
 		" authority=", get_multiplayer_authority(),
 		" my_id=", mp.get_unique_id())
 
-
 func _physics_process(delta: float) -> void:
 	if is_multiplayer_authority():
 		movement.update(self, input_handler, stats, delta)
-
 		var anim_name := ""
 		if animations and anim_player:
-			# 👇 si se presionó roll, iniciamos el estado
 			if input_handler.is_roll_pressed():
 				animations.start_roll()
-			# 👇 actualizar flag de agachado
 			animations.set_crouching(input_handler.is_crouching())
 			anim_name = animations.update(self, anim_player, delta)
-
 		if anim_name != "":
 			rpc("remote_set_animation", anim_name)
-
 		rpc("sync_transform", global_transform)
-
 
 @rpc("any_peer", "unreliable")
 func remote_set_animation(anim_name: String) -> void:
-	# El dueño ya anima localmente
 	if is_multiplayer_authority():
 		return
 	if anim_player == null:
@@ -73,18 +66,14 @@ func remote_set_animation(anim_name: String) -> void:
 	if anim_player.current_animation != anim_name:
 		anim_player.play(anim_name)
 
-
 @rpc("any_peer", "unreliable")
 func sync_transform(t: Transform3D) -> void:
-	# Solo los que NO son dueños actualizan su transform
 	if not is_multiplayer_authority():
 		global_transform = t
-
 
 func _process(delta: float) -> void:
 	if is_multiplayer_authority():
 		camera_controller.update(self, input_handler, delta)
-
 
 func _input(event: InputEvent) -> void:
 	if is_multiplayer_authority():
