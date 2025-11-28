@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cv30sdwe8fyv6"]
+[gd_scene load_steps=16 format=3 uid="uid://cv30sdwe8fyv6"]
 
 [ext_resource type="Script" uid="uid://dlnonll3mauur" path="res://assets/scripts/player/player.gd" id="1_wr5hl"]
 [ext_resource type="Script" uid="uid://cw68mdge54etp" path="res://assets/scripts/player/player_animations.gd" id="2_npwbq"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://d2vsa0hesf832" path="res://assets/scripts/player/player_movement.gd" id="4_npwbq"]
 [ext_resource type="Script" uid="uid://cfm28uyp6d7ru" path="res://assets/scripts/player/player_camera.gd" id="5_v42im"]
 [ext_resource type="PackedScene" uid="uid://dyo0u4ksywa01" path="res://assets/animations/animations.glb" id="6_c3xxp"]
+[ext_resource type="Script" uid="uid://bk83px8hmsmvl" path="res://assets/scripts/weapons/passive/passive_manager.gd" id="8_v42im"]
 
 [sub_resource type="Resource" id="Resource_pn6s4"]
 script = ExtResource("2_tpg5x")
@@ -109,5 +110,8 @@ bones/49/rotation = Quaternion(0.9924842, 9.236082e-09, -1.1387633e-09, 0.122372
 bones/50/rotation = Quaternion(0.036589734, -0.00013117323, -4.797519e-06, 0.9993304)
 bones/51/rotation = Quaternion(-0.5290733, -0.00032809481, 0.00034345797, 0.848576)
 bones/52/rotation = Quaternion(-0.00013717555, 0.9643068, -0.26478708, -0.00049942714)
+
+[node name="PassiveWeaponManager" type="Node" parent="."]
+script = ExtResource("8_v42im")
 
 [editable path="animations"]
