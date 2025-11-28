@@ -1,3 +1,12 @@
 res://scenes/ui/connect_menu.tscn
 res://assets/scripts/player/player.gd
+res://scenes/player/Player.tscn
+res://assets/scripts/weapons/passive/passive_manager.gd
+res://scenes/enviroment/level/basic_map.tscn
+res://assets/scripts/ui/menu/connect_menu.gd
 res://assets/scripts/multiplayer/NetworkManager.gd
+res://assets/scripts/ui/menu/main_menu.gd
+res://testing_enemies/enemy_spawner.gd
+res://testing_enemies/test_enemy.gd
+res://testing_enemies/test_enemy.tscn
+res://assets/scripts/weapons/passive/garlic/garlic.gd

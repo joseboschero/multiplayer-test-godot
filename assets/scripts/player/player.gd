@@ -12,7 +12,7 @@ class_name Player
 @onready var mesh: MeshInstance3D = $MeshInstance3D
 @onready var anim_player: AnimationPlayer = $"animations/AnimationPlayer"
 
-#var garlic_scene = preload("res://scenes/weapons/passive/garlic/garlic.tscn")
+var garlic_scene = preload("res://scenes/weapons/passive/garlic/garlic.tscn")
 
 func _ready():
 	if stats == null: stats = PlayerStats.new()
@@ -20,7 +20,7 @@ func _ready():
 	if movement == null: movement = PlayerMovement.new()
 	if camera_controller == null: camera_controller = PlayerCamera.new()
 	
-	#$PassiveWeaponManager.add_passive_weapon(garlic_scene, self)
+	$PassiveWeaponManager.add_passive_weapon(garlic_scene, self)
 	
 	if animations == null: animations = PlayerAnimations.new()
 	

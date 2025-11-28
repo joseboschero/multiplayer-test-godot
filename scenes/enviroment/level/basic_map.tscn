@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://bvifwpqsrjiaq" path="res://assets/scripts/maps/basic_map.gd" id="1_4fgqf"]
 [ext_resource type="Texture2D" uid="uid://bl124kv68gjq5" path="res://assets/textures/texture.png" id="1_urakw"]
-[ext_resource type="Script" uid="uid://djfw42qtnpar3" path="res://assets/scripts/multiplayer/NetworkManager.gd" id="3_4fgqf"]
 [ext_resource type="Script" uid="uid://clgx0v1et0qbe" path="res://assets/scripts/maps/pause_controller.gd.gd" id="4_8tpb0"]
 [ext_resource type="PackedScene" uid="uid://b7oce0bid564b" path="res://scenes/ui/pause_menu.tscn" id="5_84w4g"]
+[ext_resource type="Script" uid="uid://dikyhrackr0ob" path="res://testing_enemies/enemy_spawner.gd" id="6_fe4u0"]
 [ext_resource type="PackedScene" uid="uid://ddbuypex1iyar" path="res://scenes/ui/settings_menu.tscn" id="6_x748p"]
 [ext_resource type="PackedScene" uid="uid://cxfray8orly8s" path="res://testing_enemies/test_enemy.tscn" id="7_fe4u0"]
 
@@ -42,9 +42,6 @@ material_override = SubResource("StandardMaterial3D_4fgqf")
 use_collision = true
 size = Vector3(100, 0.2, 100)
 
-[node name="NetworkManager" type="Node3D" parent="."]
-script = ExtResource("3_4fgqf")
-
 [node name="PauseController" type="Node" parent="."]
 script = ExtResource("4_8tpb0")
 
@@ -52,5 +49,6 @@ script = ExtResource("4_8tpb0")
 
 [node name="SettingsMenu" parent="." instance=ExtResource("6_x748p")]
 
-[node name="TestEnemy" parent="." instance=ExtResource("7_fe4u0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0345631, 11.370777)
+[node name="EnemySpawner" type="Node3D" parent="."]
+script = ExtResource("6_fe4u0")
+enemy_scene = ExtResource("7_fe4u0")

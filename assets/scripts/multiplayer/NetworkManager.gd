@@ -49,15 +49,18 @@ func _on_connection_failed():
 func _on_peer_connected(id: int):
 	if not mp.is_server():
 		return
-
-	print("SERVIDOR: Jugador conectado: ", id)
-	_spawn_player(id)
-
+	print("\n🟢 HOST: Nuevo peer conectado: ", id)
+	
+	# 1️⃣ Enviar jugadores existentes al nuevo cliente
 	for child in get_children():
 		if child is Player:
 			var existing_id := int(child.name)
-			if existing_id != id:
-				rpc_id(id, "spawn_player", existing_id)
+			print("  → Enviando jugador existente ", existing_id, " al nuevo cliente ", id)
+			rpc_id(id, "spawn_player", existing_id)
+	
+	# 2️⃣ Crear el jugador del nuevo cliente
+	print("  → Creando jugador del nuevo cliente: ", id)
+	_spawn_player(id)
 
 
 func _on_peer_disconnected(id: int) -> void:
@@ -70,6 +73,11 @@ func _on_peer_disconnected(id: int) -> void:
 
 @rpc("authority", "call_local")
 func spawn_player(id: int):
+	# ✅ Prevenir duplicados
+	if get_node_or_null(str(id)) != null:
+		print("Jugador ", id, " ya existe")
+		return
+	
 	var p: Player = player_scene.instantiate()
 	p.name = str(id)
 	add_child(p)
