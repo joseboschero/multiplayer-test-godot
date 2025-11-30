@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Active_Weapon_Resource" load_steps=2 format=3 uid="uid://bimrbx8efejck"]
+
+[ext_resource type="Script" uid="uid://bywsobu3evjf" path="res://scenes/weapons/active/active_weapon_resource.gd" id="1_eeymk"]
+
+[resource]
+script = ExtResource("1_eeymk")
+Weapon_Name = "Pistol"
+Activate_Anim = "Pistol Activate"
+Shoot_Anim = "Pistol Shoot"
+Reload_Anim = "Pistol Reload"
+Deactivate_Anim = "Pistol Deactivate"
+Out_Of_Ammo_Anim = "Pistol OOA"
+Current_Ammo = 10
+Reserve_Ammo = 10
+Magazine = 10
+Max_Ammo = 20
+metadata/_custom_type_script = "uid://bywsobu3evjf"

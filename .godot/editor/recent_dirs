@@ -1,7 +1,5 @@
-res://assets/scripts/weapons/passive/garlic
-res://testing_enemies
-res://assets/scripts/weapons/passive
-res://scenes/weapons/passive/garlic
+res://scenes/weapons/active/resources
+res://scenes/weapons/active
 res://assets/scripts/maps
 res://scenes/ui
 res://assets/scripts/ui/menu
