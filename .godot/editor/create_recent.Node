@@ -1,3 +1,8 @@
+TextureRect
+Label
+HBoxContainer
+VBoxContainer
+CanvasLayer
 AnimationPlayer
 Node3D
 MeshInstance3D
@@ -8,8 +13,3 @@ CharacterBody3D
 Node
 Timer
 Area3D
-Control
-Button
-HSlider
-Label
-CheckBox

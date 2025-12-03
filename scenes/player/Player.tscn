@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://cv30sdwe8fyv6"]
+[gd_scene load_steps=37 format=3 uid="uid://cv30sdwe8fyv6"]
 
 [ext_resource type="Script" uid="uid://dlnonll3mauur" path="res://assets/scripts/player/player.gd" id="1_wr5hl"]
 [ext_resource type="Script" uid="uid://cw68mdge54etp" path="res://assets/scripts/player/player_animations.gd" id="2_npwbq"]
@@ -9,7 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://dyo0u4ksywa01" path="res://assets/animations/animations.glb" id="6_c3xxp"]
 [ext_resource type="Script" uid="uid://d1yq364wks77b" path="res://scenes/weapons/active/active_weapon_manager.gd" id="7_5stf6"]
 [ext_resource type="PackedScene" uid="uid://b5fsekm3nijrb" path="res://scenes/weapons/active/models/Pistol.glb" id="7_7oing"]
+[ext_resource type="Script" uid="uid://dwnogfnyostjq" path="res://assets/scripts/ui/menu/player_hud.gd" id="7_rn7t0"]
 [ext_resource type="PackedScene" uid="uid://cajmvq78jd6e7" path="res://scenes/weapons/active/models/Smg.glb" id="8_5stf6"]
+[ext_resource type="PackedScene" uid="uid://iwlpamd20oko" path="res://addons/customizableCrosshair/crosshair/crosshair.tscn" id="8_8qjgm"]
 [ext_resource type="Script" uid="uid://bywsobu3evjf" path="res://scenes/weapons/active/active_weapon_resource.gd" id="8_ov1oi"]
 [ext_resource type="Script" uid="uid://bk83px8hmsmvl" path="res://assets/scripts/weapons/passive/passive_manager.gd" id="8_v42im"]
 [ext_resource type="Resource" uid="uid://bimrbx8efejck" path="res://scenes/weapons/active/resources/Pistol.tres" id="9_rn7t0"]
@@ -37,7 +39,11 @@ metadata/_custom_type_script = "uid://cw68mdge54etp"
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o8nba"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ov1oi"]
+albedo_color = Color(0.00999999, 0.9505001, 1, 1)
+
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_wr5hl"]
+material = SubResource("StandardMaterial3D_ov1oi")
 radius = 0.4
 height = 1.8
 
@@ -371,6 +377,49 @@ movement = SubResource("Resource_5stf6")
 camera_controller = SubResource("Resource_180ig")
 animations = SubResource("Resource_v42im")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("7_rn7t0")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -77.0
+offset_right = 137.0
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Current Weapon:"
+
+[node name="CurrentWeapon" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Ammo:"
+
+[node name="CurrentAmmo" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "Weapon Stack:"
+
+[node name="WeaponStack" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+
+[node name="Crosshair" parent="CanvasLayer" instance=ExtResource("8_8qjgm")]
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_o8nba")
@@ -410,6 +459,9 @@ visible = false
 [node name="PassiveWeaponManager" type="Node" parent="."]
 script = ExtResource("8_v42im")
 
+[connection signal="Update_Ammo" from="Camera3D/Weapon_Manager" to="CanvasLayer" method="_on_weapon_manager_update_ammo"]
+[connection signal="Update_Weapon_Stack" from="Camera3D/Weapon_Manager" to="CanvasLayer" method="_on_weapon_manager_update_weapon_stack"]
+[connection signal="Weapon_Changed" from="Camera3D/Weapon_Manager" to="CanvasLayer" method="_on_weapon_manager_weapon_changed"]
 [connection signal="animation_finished" from="Camera3D/Weapon_Manager/FPS_Rig/AnimationPlayer" to="Camera3D/Weapon_Manager" method="_on_animation_player_animation_finished"]
 
 [editable path="animations"]

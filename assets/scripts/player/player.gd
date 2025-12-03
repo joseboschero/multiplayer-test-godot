@@ -19,25 +19,29 @@ func _ready():
 	if input_handler == null: input_handler = PlayerInput.new()
 	if movement == null: movement = PlayerMovement.new()
 	if camera_controller == null: camera_controller = PlayerCamera.new()
-	
+
 	$PassiveWeaponManager.add_passive_weapon(garlic_scene, self)
-	
+
 	if animations == null: animations = PlayerAnimations.new()
 	animations.stats = stats
-	
+
 	# Multiplayer: autoridad según nombre del nodo (0,1,2, etc.)
 	if name.is_valid_int():
 		set_multiplayer_authority(name.to_int())
-		
+
 	if is_multiplayer_authority():
 		cam.current = true
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-		
-		# ✅ Configurar primera persona - pasar el nodo Player completo
 		camera_controller.setup_first_person(cam, self)
+
+		#Mostrar HUD solo para el player local
+		$CanvasLayer.visible = true
 	else:
 		cam.current = false
-		
+
+		#Ocultar HUD de players remotos
+		$CanvasLayer.visible = false
+
 	print("Player listo. name=", name,
 		" authority=", get_multiplayer_authority(),
 		" my_id=", mp.get_unique_id())
