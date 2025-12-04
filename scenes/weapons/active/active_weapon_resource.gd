@@ -15,3 +15,7 @@ class_name Active_Weapon_Resource
 @export var Max_Ammo: int
 
 @export var Auto_Fire: bool
+
+# Nueva propiedad para guardar la referencia al nodo de arma
+var Weapon_Node: Node3D = null
+var Animation_Player: AnimationPlayer = null

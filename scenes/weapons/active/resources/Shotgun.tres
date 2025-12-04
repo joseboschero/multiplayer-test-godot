@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Active_Weapon_Resource" load_steps=2 format=3 uid="uid://cadv04pshqlai"]
+
+[ext_resource type="Script" uid="uid://bywsobu3evjf" path="res://scenes/weapons/active/active_weapon_resource.gd" id="1_1iyp3"]
+
+[resource]
+script = ExtResource("1_1iyp3")
+Weapon_Name = "Shotgun"
+Activate_Anim = "Shotgun Activate"
+Shoot_Anim = "Shotgun Shoot"
+Reload_Anim = "Shotgun Reload"
+Deactivate_Anim = "Shotgun Deactivate"
+Out_Of_Ammo_Anim = "Shotgun OOA"
+Current_Ammo = 5
+Reserve_Ammo = 10
+Magazine = 5
+metadata/_custom_type_script = "uid://bywsobu3evjf"

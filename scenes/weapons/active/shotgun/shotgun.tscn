@@ -1,0 +1,267 @@
+[gd_scene load_steps=9 format=3 uid="uid://c07tpbwdnsxwp"]
+
+[ext_resource type="PackedScene" uid="uid://46fmvbwfbynj" path="res://assets/models/Shotgun.fbx" id="1_v4un8"]
+
+[sub_resource type="Animation" id="Animation_jpwf0"]
+resource_name = "ShotgunArmature|Reload"
+length = 0.25
+tracks/0/type = "rotation_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShotgunArmature")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -1, 0, 0, 1.3315805e-07)
+tracks/1/type = "position_3d"
+tracks/1/imported = true
+tracks/1/enabled = true
+tracks/1/path = NodePath("ShotgunArmature/Skeleton3D:Control")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.0020665254, -0.0014420646, -0.021506384)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = true
+tracks/2/enabled = true
+tracks/2/path = NodePath("ShotgunArmature/Skeleton3D:Control")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 6.590988e-07, 0.7071068, 0.7071067, 6.5909865e-07, 0.1, 1, 6.586235e-07, 0.7065969, 0.70761627, 6.5957363e-07, 0.20833333, 1, 6.579099e-07, 0.7058313, 0.7083799, 6.602854e-07, 0.25, 1, 6.590988e-07, 0.7071068, 0.7071067, 6.5909865e-07)
+tracks/3/type = "position_3d"
+tracks/3/imported = true
+tracks/3/enabled = true
+tracks/3/path = NodePath("ShotgunArmature/Skeleton3D:Reload")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 2.1631866e-05, 0.021506384, 0.0014420662, 0.041666668, 1, 2.1631866e-05, 0.02071224, 0.0014420662, 0.125, 1, 2.1631866e-05, 0.016557705, 0.0014420662, 0.16666667, 1, 2.1631866e-05, 0.015763562, 0.0014420662, 0.25, 1, 2.1631866e-05, 0.021506384, 0.0014420662)
+tracks/4/type = "rotation_3d"
+tracks/4/imported = true
+tracks/4/enabled = true
+tracks/4/path = NodePath("ShotgunArmature/Skeleton3D:Reload")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, 4.1890082e-14, -1, -4.718311e-08, 9.321064e-07)
+tracks/5/type = "rotation_3d"
+tracks/5/imported = true
+tracks/5/enabled = true
+tracks/5/path = NodePath("ShotgunArmature/Skeleton3D:Trigger")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = PackedFloat32Array(0, 1, 0.49999958, -0.49999955, -0.5000005, 0.5000004)
+tracks/6/type = "position_3d"
+tracks/6/imported = true
+tracks/6/enabled = true
+tracks/6/path = NodePath("ShotgunArmature/Skeleton3D:Bullet")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = PackedFloat32Array(0, 1, 0.00084481307, 0.008896219, -0.00055952085)
+
+[sub_resource type="Animation" id="Animation_7df68"]
+resource_name = "ShotgunArmature|FireWBullet"
+length = 0.7083333
+tracks/0/type = "rotation_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShotgunArmature")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -1, 0, 0, 1.3315805e-07)
+tracks/1/type = "position_3d"
+tracks/1/imported = true
+tracks/1/enabled = true
+tracks/1/path = NodePath("ShotgunArmature/Skeleton3D:Control")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.0020665254, -0.0014420646, -0.021506384, 0.083333336, 1, -0.0020665254, -0.0014420646, -0.021506384, 0.16666667, 1, -0.0020665254, -0.0014420646, -0.023524819, 0.29166666, 1, -0.0020665254, -0.0014420646, -0.022515602, 0.41666666, 1, -0.0020665254, -0.0014420646, -0.021506384, 0.7083333, 1, -0.0020665254, -0.0014420646, -0.021506384)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = true
+tracks/2/enabled = true
+tracks/2/path = NodePath("ShotgunArmature/Skeleton3D:Control")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 6.590988e-07, 0.7071068, 0.7071067, 6.5909865e-07, 0.083333336, 1, 6.590988e-07, 0.7071068, 0.7071067, 6.5909865e-07, 0.16666667, 1, 6.1324806e-07, 0.65791637, 0.75309104, 7.019609e-07, 0.20833333, 1, 6.1616134e-07, 0.6610418, 0.75034904, 6.994051e-07, 0.25, 1, 6.245829e-07, 0.67007685, 0.74229175, 6.9189485e-07, 0.33333334, 1, 6.4829266e-07, 0.69551355, 0.718513, 6.697305e-07, 0.375, 1, 6.563527e-07, 0.70416075, 0.7100406, 6.618334e-07, 0.41666666, 1, 6.590988e-07, 0.7071068, 0.7071067, 6.5909865e-07, 0.7083333, 1, 6.590988e-07, 0.7071068, 0.7071067, 6.5909865e-07)
+tracks/3/type = "position_3d"
+tracks/3/imported = true
+tracks/3/enabled = true
+tracks/3/path = NodePath("ShotgunArmature/Skeleton3D:Reload")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 2.1631866e-05, 0.021506384, 0.0014420662)
+tracks/4/type = "rotation_3d"
+tracks/4/imported = true
+tracks/4/enabled = true
+tracks/4/path = NodePath("ShotgunArmature/Skeleton3D:Reload")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, 4.1890082e-14, -1, -4.718311e-08, 9.321064e-07)
+tracks/5/type = "rotation_3d"
+tracks/5/imported = true
+tracks/5/enabled = true
+tracks/5/path = NodePath("ShotgunArmature/Skeleton3D:Trigger")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = PackedFloat32Array(0, 1, 0.49999958, -0.49999955, -0.5000005, 0.5000004, 0.041666668, 1, 0.53596437, -0.46123895, -0.53596514, 0.46123987, 0.083333336, 1, 0.6033563, -0.36872813, -0.6033569, 0.36872917, 0.16666667, 1, 0.6033563, -0.3687281, -0.60335696, 0.36872914, 0.20833333, 1, 0.5359643, -0.46123898, -0.53596514, 0.4612399, 0.25, 1, 0.49999958, -0.49999955, -0.5000005, 0.5000004, 0.7083333, 1, 0.49999958, -0.49999955, -0.5000005, 0.5000004)
+tracks/6/type = "position_3d"
+tracks/6/imported = true
+tracks/6/enabled = true
+tracks/6/path = NodePath("ShotgunArmature/Skeleton3D:Bullet")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = PackedFloat32Array(0, 1, 0.00084481307, 0.008896219, -0.00055952085, 0.083333336, 1, 0.00084481307, 0.008896218, -0.00055951107, 0.125, 1, -0.00298714, 0.008896217, -0.0005595062, 0.16666667, 1, -0.009806875, 0.008896217, -0.0005595013, 0.20833333, 1, -0.015785078, 0.008785674, 0.0012016427, 0.25, 1, -0.022550713, 0.008496515, 0.006836337, 0.29166666, 1, -0.027620887, 0.008207358, 0.015244841, 0.33333334, 1, -0.02931899, 0.008096809, 0.02400831, 0.375, 1, -0.029318964, 0.008096808, 0.03325612, 0.41666666, 1, -0.02931894, 0.008096807, 0.045111977, 0.45833334, 1, -0.029318914, 0.008096805, 0.06013885, 0.5, 1, -0.029318888, 0.008096804, 0.07913062, 0.5416667, 1, -0.029318862, 0.008096802, 0.10036226, 0.5833333, 1, -0.029318837, 0.008096801, 0.12080349, 0.625, 1, -0.029318811, 0.0080968, 0.13713041, 0.6666667, 1, -0.029318785, 0.008096798, 0.14718862, 0.7083333, 1, -0.02931876, 0.008096797, 0.15045479)
+
+[sub_resource type="Animation" id="Animation_5u5qy"]
+resource_name = "ShotgunArmature|FireWOBullet"
+length = 0.41666666
+tracks/0/type = "rotation_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShotgunArmature")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -1, 0, 0, 1.3315805e-07)
+tracks/1/type = "position_3d"
+tracks/1/imported = true
+tracks/1/enabled = true
+tracks/1/path = NodePath("ShotgunArmature/Skeleton3D:Control")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.0020665254, -0.0014420646, -0.021506384, 0.083333336, 1, -0.0020665254, -0.0014420646, -0.021506384, 0.16666667, 1, -0.0020665254, -0.0014420646, -0.023524819, 0.29166666, 1, -0.0020665254, -0.0014420646, -0.022515602, 0.41666666, 1, -0.0020665254, -0.0014420646, -0.021506384)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = true
+tracks/2/enabled = true
+tracks/2/path = NodePath("ShotgunArmature/Skeleton3D:Control")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 6.590988e-07, 0.7071068, 0.7071067, 6.5909865e-07, 0.083333336, 1, 6.590988e-07, 0.7071068, 0.7071067, 6.5909865e-07, 0.16666667, 1, 6.1324806e-07, 0.65791637, 0.75309104, 7.019609e-07, 0.20833333, 1, 6.1616134e-07, 0.6610418, 0.75034904, 6.994051e-07, 0.25, 1, 6.245829e-07, 0.67007685, 0.74229175, 6.9189485e-07, 0.33333334, 1, 6.4829266e-07, 0.69551355, 0.718513, 6.697305e-07, 0.375, 1, 6.563527e-07, 0.70416075, 0.7100406, 6.618334e-07, 0.41666666, 1, 6.590988e-07, 0.7071068, 0.7071067, 6.5909865e-07)
+tracks/3/type = "position_3d"
+tracks/3/imported = true
+tracks/3/enabled = true
+tracks/3/path = NodePath("ShotgunArmature/Skeleton3D:Reload")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 2.1631866e-05, 0.021506384, 0.0014420662)
+tracks/4/type = "rotation_3d"
+tracks/4/imported = true
+tracks/4/enabled = true
+tracks/4/path = NodePath("ShotgunArmature/Skeleton3D:Reload")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, 4.1890082e-14, -1, -4.718311e-08, 9.321064e-07)
+tracks/5/type = "rotation_3d"
+tracks/5/imported = true
+tracks/5/enabled = true
+tracks/5/path = NodePath("ShotgunArmature/Skeleton3D:Trigger")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = PackedFloat32Array(0, 1, 0.49999958, -0.49999955, -0.5000005, 0.5000004, 0.041666668, 1, 0.53596437, -0.46123895, -0.53596514, 0.46123987, 0.083333336, 1, 0.6033563, -0.36872813, -0.6033569, 0.36872917, 0.16666667, 1, 0.6033563, -0.3687281, -0.60335696, 0.36872914, 0.20833333, 1, 0.5359643, -0.46123898, -0.53596514, 0.4612399, 0.25, 1, 0.49999958, -0.49999955, -0.5000005, 0.5000004, 0.41666666, 1, 0.49999958, -0.49999955, -0.5000005, 0.5000004)
+tracks/6/type = "position_3d"
+tracks/6/imported = true
+tracks/6/enabled = true
+tracks/6/path = NodePath("ShotgunArmature/Skeleton3D:Bullet")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = PackedFloat32Array(0, 1, 0.00084481307, 0.008896219, -0.00055952085)
+
+[sub_resource type="Animation" id="Animation_7l41r"]
+resource_name = "Shotgun Activate"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -5, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.46666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_0jv2g"]
+resource_name = "Shotgun Deactivate"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.46666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -5, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_yf8db"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_as5kp"]
+_data = {
+&"RESET": SubResource("Animation_yf8db"),
+&"Shotgun Activate": SubResource("Animation_7l41r"),
+&"Shotgun Deactivate": SubResource("Animation_0jv2g"),
+&"Shotgun OOA": SubResource("Animation_5u5qy"),
+&"Shotgun Reload": SubResource("Animation_jpwf0"),
+&"Shotgun Shoot": SubResource("Animation_7df68")
+}
+
+[node name="Shotgun" instance=ExtResource("1_v4un8")]
+
+[node name="Skeleton3D" parent="ShotgunArmature" index="0"]
+bones/0/rotation = Quaternion(6.590989e-07, 0.7071068, 0.7071067, 6.5909865e-07)
+bones/1/rotation = Quaternion(-4.1890082e-14, 1, 4.718311e-08, -9.321064e-07)
+bones/3/rotation = Quaternion(0.49999958, -0.49999952, -0.5000005, 0.5000004)
+
+[node name="AnimationPlayer" parent="." index="1"]
+libraries = {
+&"": SubResource("AnimationLibrary_as5kp")
+}

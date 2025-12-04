@@ -1,7 +1,7 @@
 res://scenes/player/Player.tscn
+res://scenes/weapons/active/active_weapon_resource.gd
 res://scenes/weapons/active/active_weapon_manager.gd
-res://assets/scripts/player/player.gd
-res://assets/scripts/ui/menu/player_hud.gd
-res://scenes/weapons/active/resources/Revolver.tres
-res://scenes/weapons/active/revolver.tscn
-res://scenes/weapons/active/p_228.tscn
+res://scenes/weapons/active/pistol/pistol.tscn
+res://scenes/weapons/active/resources/Pistol.tres
+res://scenes/weapons/active/shotgun/shotgun.tscn
+res://scenes/weapons/active/resources/Shotgun.tres

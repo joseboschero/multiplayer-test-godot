@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cajmvq78jd6e7"
-path="res://.godot/imported/Smg.glb-06b36abdb44367831fc43737e60c8789.scn"
+uid="uid://46fmvbwfbynj"
+path="res://.godot/imported/Shotgun.fbx-d4aab15ba5a02caba0664f6578e0136f.scn"
 
 [deps]
 
-source_file="res://scenes/weapons/active/models/Smg.glb"
-dest_files=["res://.godot/imported/Smg.glb-06b36abdb44367831fc43737e60c8789.scn"]
+source_file="res://assets/models/Shotgun.fbx"
+dest_files=["res://.godot/imported/Shotgun.fbx-d4aab15ba5a02caba0664f6578e0136f.scn"]
 
 [params]
 
@@ -30,7 +30,7 @@ meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
 animation/fps=30
-animation/trimming=false
+animation/trimming=true
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
@@ -38,5 +38,7 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={}
-gltf/naming_version=2
-gltf/embedded_image_handling=1
+fbx/importer=0
+fbx/allow_geometry_helper_nodes=false
+fbx/embedded_image_handling=1
+fbx/naming_version=2

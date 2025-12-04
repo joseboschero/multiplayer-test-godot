@@ -1,5 +1,7 @@
-res://scenes/weapons/active
 res://scenes/weapons/active/resources
+res://scenes/weapons/active/shotgun
+res://scenes/weapons/active/pistol
+res://scenes/weapons/active
 res://assets/scripts/ui/menu
 res://assets/scripts/maps
 res://scenes/ui
