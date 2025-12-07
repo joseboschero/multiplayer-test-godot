@@ -57,7 +57,9 @@ func _physics_process(delta: float) -> void:
 			anim_name = animations.update(self, anim_player, delta)
 		if anim_name != "":
 			rpc("remote_set_animation", anim_name)
-		rpc("sync_transform", global_transform)
+		
+		# Sincronizar transform Y rotación de cámara
+		rpc("sync_transform", global_transform, cam.rotation.x)
 
 @rpc("any_peer", "unreliable")
 func remote_set_animation(anim_name: String) -> void:
@@ -71,9 +73,11 @@ func remote_set_animation(anim_name: String) -> void:
 		anim_player.play(anim_name)
 
 @rpc("any_peer", "unreliable")
-func sync_transform(t: Transform3D) -> void:
+func sync_transform(t: Transform3D, cam_rot_x: float) -> void:
 	if not is_multiplayer_authority():
 		global_transform = t
+		if cam:
+			cam.rotation.x = cam_rot_x
 
 func _process(delta: float) -> void:
 	if is_multiplayer_authority():

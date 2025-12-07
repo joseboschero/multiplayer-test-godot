@@ -12,10 +12,10 @@
 [ext_resource type="PackedScene" uid="uid://iwlpamd20oko" path="res://addons/customizableCrosshair/crosshair/crosshair.tscn" id="8_8qjgm"]
 [ext_resource type="Script" uid="uid://bywsobu3evjf" path="res://scenes/weapons/active/active_weapon_resource.gd" id="8_ov1oi"]
 [ext_resource type="Script" uid="uid://bk83px8hmsmvl" path="res://assets/scripts/weapons/passive/passive_manager.gd" id="8_v42im"]
-[ext_resource type="Resource" uid="uid://bimrbx8efejck" path="res://scenes/weapons/active/resources/Pistol.tres" id="9_rn7t0"]
-[ext_resource type="PackedScene" uid="uid://dvpnv5r8bbpx4" path="res://scenes/weapons/active/pistol/pistol.tscn" id="11_20koh"]
-[ext_resource type="Resource" uid="uid://cadv04pshqlai" path="res://scenes/weapons/active/resources/Shotgun.tres" id="12_rn7t0"]
-[ext_resource type="PackedScene" uid="uid://c07tpbwdnsxwp" path="res://scenes/weapons/active/shotgun/shotgun.tscn" id="14_8qjgm"]
+[ext_resource type="Resource" uid="uid://b4ox83fs3snvf" path="res://scenes/weapons/active/resources/Pistol.tres" id="9_rn7t0"]
+[ext_resource type="Resource" uid="uid://clobu6bl5k2fh" path="res://scenes/weapons/active/resources/Shotgun.tres" id="12_rn7t0"]
+[ext_resource type="PackedScene" uid="uid://qnhiiqh6eck3" path="res://scenes/weapons/active/pistol/Pistol.tscn" id="13_8qjgm"]
+[ext_resource type="PackedScene" uid="uid://ssugv4imfpl7" path="res://scenes/weapons/active/shotgun/Shotgun.tscn" id="14_ejd4k"]
 
 [sub_resource type="Resource" id="Resource_pn6s4"]
 script = ExtResource("2_tpg5x")
@@ -106,7 +106,6 @@ shape = SubResource("CapsuleShape3D_o8nba")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-visible = false
 mesh = SubResource("CapsuleMesh_wr5hl")
 skeleton = NodePath("../..")
 
@@ -114,6 +113,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, -0.191)
 
 [node name="Weapon_Manager" type="Node3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1544416, -0.43286133, 0.28097522)
 script = ExtResource("7_5stf6")
 _weapon_resources = Array[ExtResource("8_ov1oi")]([ExtResource("9_rn7t0"), ExtResource("12_rn7t0")])
 Start_Weapons = Array[String](["Pistol", "Shotgun"])
@@ -121,14 +121,15 @@ Start_Weapons = Array[String](["Pistol", "Shotgun"])
 [node name="FPS_Rig" type="Node3D" parent="Camera3D/Weapon_Manager"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.21424079, -0.19238472, -0.44161403)
 
-[node name="Pistol" parent="Camera3D/Weapon_Manager/FPS_Rig" instance=ExtResource("11_20koh")]
-transform = Transform3D(-2.1855695e-09, 0, 0.05, 0, 0.05, 0, -0.05, 0, -2.1855695e-09, 0, 0, 0)
+[node name="Pistol" parent="Camera3D/Weapon_Manager/FPS_Rig" instance=ExtResource("13_8qjgm")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="Shotgun" parent="Camera3D/Weapon_Manager/FPS_Rig" instance=ExtResource("14_8qjgm")]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+[node name="Shotgun" parent="Camera3D/Weapon_Manager/FPS_Rig" instance=ExtResource("14_ejd4k")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="animations" parent="." instance=ExtResource("6_c3xxp")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
+visible = false
 
 [node name="PassiveWeaponManager" type="Node" parent="."]
 script = ExtResource("8_v42im")

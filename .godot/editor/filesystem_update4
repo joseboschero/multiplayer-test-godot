@@ -1,7 +1,0 @@
-res://scenes/player/Player.tscn
-res://scenes/weapons/active/active_weapon_resource.gd
-res://scenes/weapons/active/active_weapon_manager.gd
-res://scenes/weapons/active/pistol/pistol.tscn
-res://scenes/weapons/active/resources/Pistol.tres
-res://scenes/weapons/active/shotgun/shotgun.tscn
-res://scenes/weapons/active/resources/Shotgun.tres
